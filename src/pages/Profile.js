@@ -1,11 +1,12 @@
 import React from 'react'
 import NavBar from '../components/NavBar/NavBar'
-import { Box, Divider, Typography } from '@mui/material'
+import { Box, Button, Divider, Typography } from '@mui/material'
 import { LocationOnOutlined, WorkOutlineOutlined } from '@mui/icons-material'
 import FlexBetween from '../components/NavBar/FlexBetween'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../features/user/userSlice'
 import avatar from '../assets/avatar.jpeg'
+import { useNavigate } from 'react-router-dom'
 const UserImage =({size="60px"})=>{
     return (
         <Box width={size} height={size}>
@@ -23,6 +24,7 @@ const UserImage =({size="60px"})=>{
 
 function Profile() {
     const user =useSelector(selectUser)
+    const navigate=useNavigate()
     console.log(user)
   return (
     <div>
@@ -31,7 +33,8 @@ function Profile() {
             sx={{
                 backgroundColor:"#ffffff",
                 borderRadius:"0.75rem",
-                margin:'1.5rem',
+                margin:'auto',
+                marginTop:'1.5rem',
                 p:"1.5rem 0.75rem",
                 gap:"0.5rem",
                 height:"45vh",
@@ -57,7 +60,7 @@ function Profile() {
            </Box>
            <Divider/>
            <FlexBetween display={"flex"} flexDirection={'column'} alignItems={"center"}gap={"1rem"}>
-                <Typography>Diagnosis History</Typography>
+                <Typography color={"#aa0c83"}>Diagnosis History</Typography>
                 <FlexBetween flexDirection={"column"} alignItems={"normal"}>
                     {
                         user.diagnosisHistory.map( (diagnosis,index) =>(
@@ -69,12 +72,13 @@ function Profile() {
            <Divider/>
            <Box p="1rem 0.75rem">
                 <Box display={"flex"} alignItems={"center"}gap={"1rem"}>
-                    <Typography>Doctor</Typography>
+                    <Typography color={"#aa0c83"}>Doctor</Typography>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}gap={"1rem"}>
                     <Typography> { user.doctor}</Typography>
                 </Box>
            </Box>
+           <Box p="2rem 0.75rem"><Button onClick={()=>navigate('/nearbydoctors')}><Typography variant="h5" color={"#054e4e"}>NEARBY DOCTORS</Typography></Button></Box>
         </Box>
     </div>
   )

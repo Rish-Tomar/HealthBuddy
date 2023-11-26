@@ -11,8 +11,12 @@ const initialState = {
         'Blood Pressure',
         'Diabaties'
     ],
-    doctor:'Dr. LalPath'
-
+    doctor:'Dr. LalPath',
+    lastBp:{
+        low:88,
+        high:120
+    },
+    lastSugerCount:76
  },
  status: 'idle',
 };

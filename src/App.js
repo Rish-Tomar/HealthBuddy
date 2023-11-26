@@ -3,6 +3,7 @@ import './App.css';
 import { RouterProvider,createBrowserRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Profile from './pages/Profile';
+import NearbyDoctors from './pages/NearbyDoctors';
 
 //All Routes of the Apps are defined below 
 const router =createBrowserRouter([
@@ -13,6 +14,10 @@ const router =createBrowserRouter([
   {
     path:"/profile",
     element:<Profile/>
+  },
+  {
+    path:'/nearbydoctors',
+    element:<NearbyDoctors/>
   }
 ])
 
