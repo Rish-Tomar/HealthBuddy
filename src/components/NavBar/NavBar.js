@@ -19,7 +19,7 @@ function NavBar() {
         </Typography>
         <Button color="inherit">Login</Button>
         <Button color="inherit">Home</Button>
-        <Button color="inherit">Diagonosis</Button>
+        <Button color="inherit" onClick={()=>navigate("/profile")}>Diagonosis</Button>
         <Button color="inherit">Medecines</Button>
       </Toolbar>
     </AppBar>
